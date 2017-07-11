@@ -5,18 +5,13 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var connection = require('./user');
 
-//models 
 var User = require('./models');
-
-//postman
 var bodyParser = require('body-parser');
-
-//view engine
 var ejs = require('ejs');
 var ejsMate = require('ejs-mate');
 
 //database connection
-var connect = 'mongodb://'+ connection.username +':'+connection.password+ '@ds028310.mlab.com:28310/application';
+var connect = 'mongodb://'+ connection.username +':'+ connection.password + '@ds028310.mlab.com:28310/application';
 mongoose.connect(connect,function(err){
     if(err) console.log("Error connecting to database")
     else console.log("Successfully connected to database")
