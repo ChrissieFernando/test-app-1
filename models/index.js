@@ -31,4 +31,4 @@ newUser.pre('save',function(next){
 newUser.methods.comparePassword = function(password){
   return bcrypt.compareSync(password,this.password);
 }
-module.exports = mongoose.model('sad',newUser);
+module.exports = mongoose.model('newUser',newUser);
