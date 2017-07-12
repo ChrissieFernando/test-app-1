@@ -15,4 +15,9 @@ router.get('/home',function(req,res){
 router.get('/about',function(req,res){
     res.render('main/about');
 });
+router.get('/signup',function(req,res){
+    res.render('accounts/signup',{
+        alert: req.flash('errors')
+    });
+})
 module.exports = router;

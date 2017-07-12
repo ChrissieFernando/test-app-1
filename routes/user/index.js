@@ -9,18 +9,15 @@ router.post('/signup',function(req,res,next){
 
   User.findOne({email:req.body.email},function(err,userexist){
       if(userexist) {
-          console.log(req.body.email + "  "  + "already exist");
+          req.flash('errors', req.body.email + "  "  + "already exist");
           return res.redirect('/signup');
       }else{
           user.save(function(err,user){
               if(err) return next(err);
-              res.json("new user has been created");
+              //req.flash('errors',"new user has been created");
+              return res.redirect('http://www.google.com');
           });
       }
   });
-//   user.save(function(err){
-//     if(err) res.json("error while creating a new user");
-//     else res.json("successfully created a new user bro");
-//   });
 });
 module.exports = router;
